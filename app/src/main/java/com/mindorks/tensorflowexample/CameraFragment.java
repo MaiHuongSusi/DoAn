@@ -48,7 +48,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class CameraFragment extends Fragment {
 
-    private static final Size inputSize = new Size(640, 480);
+    private static final Size inputSize = new Size(640, 300);
     private static final int MINIMUM_PREVIEW_SIZE = 320;
     /**
      * A {@link Semaphore} to prevent the app from exiting before closing the camera.

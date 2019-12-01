@@ -18,8 +18,8 @@ package com.mindorks.tensorflowexample;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -32,20 +32,19 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.SystemClock;
 import android.os.Trace;
+import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
-
 import android.support.v7.app.AppCompatActivity;
-
 import android.util.Log;
 import android.util.Size;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -58,6 +57,7 @@ public class CameraActivity extends AppCompatActivity implements ImageReader.OnI
     public static final String TAG = "CameraActivity";
 
     private static final int PERMISSIONS_REQUEST = 1;
+    private static final int PICK_IMAGE=100;
 
     private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
     private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -90,23 +90,32 @@ public class CameraActivity extends AppCompatActivity implements ImageReader.OnI
     private TensorFlowImageClassifier2 classifier;
     private Executor executor = Executors.newSingleThreadExecutor();
     private TextToSpeech tts;
-    private ImageButton imageSpeaker;
+    private ImageView imageSpeaker;
     RelativeLayout container;
+    private LinearLayout btnChoose;
 
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_camera);
-        container = (RelativeLayout) findViewById( R.id.container );
+        container = (RelativeLayout) findViewById(R.id.container);
 
         if (hasPermission()) {
             setFragment();
         } else {
             requestPermission();
         }
+        btnChoose = findViewById(R.id.btnChoose);
+        btnChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gallary = new Intent(CameraActivity.this, ChooseImageActivity.class);
+                startActivity(gallary);
+            }
+        });
     }
 
     private boolean hasPermission() {
@@ -165,6 +174,7 @@ public class CameraActivity extends AppCompatActivity implements ImageReader.OnI
         }
         super.onPause();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -193,12 +203,12 @@ public class CameraActivity extends AppCompatActivity implements ImageReader.OnI
 
         classifier = new TensorFlowImageClassifier2(getAssets(), MODEL_FILE, LABEL_FILE, INPUT_SIZE, IMAGE_MEAN, IMAGE_STD, INPUT_NAME, OUTPUT_NAME);
 
-        resultsView=(TextView) findViewById(R.id.nameResult);
-        tts= new TextToSpeech(this, this);
-        imageSpeaker=(ImageButton) findViewById(R.id.imageSpeaker);
-        imageSpeaker.setOnClickListener(new View.OnClickListener(){
+        resultsView = (TextView) findViewById(R.id.nameResult);
+        tts = new TextToSpeech(this, this);
+        imageSpeaker = findViewById(R.id.imageSpeaker);
+        imageSpeaker.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View arg0){
+            public void onClick(View arg0) {
                 speakOut();
             }
         });
@@ -230,7 +240,7 @@ public class CameraActivity extends AppCompatActivity implements ImageReader.OnI
     }
 
     private void speakOut() {
-        String text= resultsView.getText().toString();
+        String text = resultsView.getText().toString();
         tts.setSpeechRate((float) 0.7);
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
