@@ -3,9 +3,6 @@ package com.mindorks.tensorflowexample;
 import android.content.Intent;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
-import android.support.design.widget.BaseTransientBottomBar;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -15,6 +12,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.Camera;
@@ -32,12 +33,10 @@ import com.google.ar.core.exceptions.UnavailableApkTooOldException;
 import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException;
 import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
-import com.mindorks.tensorflowexample.obj.Product;
 import com.mindorks.tensorflowexample.rendering.BackgroundRenderer;
 import com.mindorks.tensorflowexample.rendering.ObjectRenderer;
 import com.mindorks.tensorflowexample.rendering.PlaneRenderer;
 import com.mindorks.tensorflowexample.rendering.PointCloudRenderer;
-
 
 import java.io.IOException;
 import java.util.ArrayList;

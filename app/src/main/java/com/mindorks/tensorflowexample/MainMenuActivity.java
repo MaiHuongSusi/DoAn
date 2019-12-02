@@ -2,9 +2,10 @@ package com.mindorks.tensorflowexample;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -15,12 +16,12 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void show3DObject(View view) {
-        Intent intent = new Intent(MainMenuActivity.this, CameraActivity.class);
+        Intent intent = new Intent(MainMenuActivity.this, InstantDetectActivity.class);
         startActivity(intent);
     }
 
     public void identifyObjects(View view) {
-        Intent intent = new Intent(MainMenuActivity.this, CameraActivity.class);
+        Intent intent = new Intent(MainMenuActivity.this, InstantDetectActivity.class);
         startActivity(intent);
     }
 }

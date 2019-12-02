@@ -22,7 +22,7 @@ import android.media.ImageReader;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Size;
 import android.view.LayoutInflater;
 import android.view.Surface;
@@ -295,7 +295,7 @@ public class CameraFragment extends Fragment {
         } catch (final CameraAccessException e) {
             e.printStackTrace();
         }
-        ((CameraActivity) getActivity()).onPreviewSizeChosen(previewSize, sensorOrientation);
+        ((InstantDetectActivity) getActivity()).onPreviewSizeChosen(previewSize, sensorOrientation);
     }
 
     private void configureTransform(final int viewWidth, final int viewHeight) {

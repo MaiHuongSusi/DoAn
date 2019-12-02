@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.mindorks.tensorflowexample.MainActivity">
+
+    <GridLayout
+        android:id="@+id/idGrid"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:background="#363636"
+        android:columnCount="7"
+        android:paddingLeft="5dp"
+        android:paddingTop="15dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="15dp"
+        android:rowCount="1">
+
+        <LinearLayout
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="3"
+            android:layout_gravity="left"
+            android:layout_margin="10dp"
+            android:background="@drawable/buttonshape">
+
+            <TextView
+                android:id="@+id/nameResult"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Not Classify"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/imageSpeaker"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_columnSpan="1"
+            android:layout_margin="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonshape"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/speaker" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/imageDetail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_columnSpan="1"
+            android:layout_margin="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonshape"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/detail" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/imageVideo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_columnSpan="1"
+            android:layout_margin="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonshape"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/video" />
+        </LinearLayout>
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="4"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/noimage" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="20dp">
+    <Button
+        android:id="@+id/btnCapturePic"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button_capture"/>
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_weight="0"
+        android:background="#212121"
+        android:columnCount="3"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:rowCount="1">
+
+        <LinearLayout
+            android:id="@+id/btnIdentify"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/identify" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:gravity="center_horizontal"
+                android:paddingTop="5dp"
+                android:text="Detect"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnCapture"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/capture1" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:gravity="center_horizontal"
+                android:paddingTop="5dp"
+                android:text="Capture"
+                android:textColor="#0091F7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnChoose"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/choose" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center_horizontal"
+                android:paddingTop="5dp"
+                android:text="Choose"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </GridLayout>
+
+</LinearLayout>

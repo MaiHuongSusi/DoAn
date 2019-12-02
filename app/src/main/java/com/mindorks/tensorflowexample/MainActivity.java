@@ -18,12 +18,12 @@ package com.mindorks.tensorflowexample;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 //        cameraButton.setOnClickListener(new View.OnClickListener() {
 //                                            @Override
 //                                            public void onClick(View view) {
-//                                                Intent modAct = new Intent(MainActivity.this, CameraActivity.class);
+//                                                Intent modAct = new Intent(MainActivity.this, InstantDetectActivity.class);
 //                                                startActivity(modAct);
 //                                            }
 //                                        }

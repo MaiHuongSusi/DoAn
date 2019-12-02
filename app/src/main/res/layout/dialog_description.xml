@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="300dp"
-    android:layout_height="wrap_content"
+    android:layout_height="500dp"
     android:padding="5dp"
     android:layout_gravity="center_horizontal|center_vertical"
-    android:background="#FF8B8B">
+    android:background="@drawable/bg_des">
 
     <TextView
         android:id="@+id/txtClose"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:text="X"
-        android:textColor="#2C2C2C"
+        android:textColor="#ffffff"
         android:gravity="center"
         android:layout_gravity="end"
         android:textStyle="bold"/>
@@ -28,17 +28,18 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:src="@drawable/bosskid"
-            app:civ_border_color="#61BFAD"
+            android:src="@drawable/idea"
+            app:civ_border_color="#ffffff"
             app:civ_border_width="2dp" />
 
         <TextView
+            android:paddingTop="20dp"
+            android:textColor="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:text="Description"
+            android:text="DESCRIPTION"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -46,9 +47,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="180dp"
         android:orientation="vertical"
-        android:background="#F9F7E8"
+        android:background="#ffffff"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp">
 
@@ -75,16 +76,20 @@
     </LinearLayout>
     
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
+        android:background="@drawable/buttonshape"
         android:layout_margin="10dp">
-        <ImageButton
+        <ImageView
             android:id="@+id/imgBtnSpeaker"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/promotion"
-            android:background="@drawable/buttonshape" />
+            android:src="@drawable/speaker"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="10dp"/>
     </LinearLayout>
 
 </LinearLayout>

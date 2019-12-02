@@ -1,6 +1,6 @@
 package com.mindorks.tensorflowexample;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Show3DObjects extends AppCompatActivity {
 }
