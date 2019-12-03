@@ -14,12 +14,13 @@
  */
 package com.mindorks.tensorflowexample;
 
-import android.app.Activity;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.DisplayManager.DisplayListener;
 import android.view.Display;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.ar.core.Session;
 
@@ -45,12 +46,12 @@ public class DisplayRotationHelper implements DisplayListener {
     display = context.getSystemService(WindowManager.class).getDefaultDisplay();
   }
 
-  /** Registers the display listener. Should be called from {@link Activity#onResume()}. */
+  /** Registers the display listener. Should be called from {@link AppCompatActivity#onResume()}. */
   public void onResume() {
     context.getSystemService(DisplayManager.class).registerDisplayListener(this, null);
   }
 
-  /** Unregisters the display listener. Should be called from {@link Activity#onPause()}. */
+  /** Unregisters the display listener. Should be called from {@link AppCompatActivity#onPause()}. */
   public void onPause() {
     context.getSystemService(DisplayManager.class).unregisterDisplayListener(this);
   }

@@ -17,9 +17,16 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -56,6 +63,7 @@ public class CaptureActivity extends AppCompatActivity implements TextToSpeech.O
     private LinearLayout btnIdentify, btnChoose;
     private Dialog dialog;
     private Button btnCapturePic;
+    private StorageReference mStorageRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,6 +80,8 @@ public class CaptureActivity extends AppCompatActivity implements TextToSpeech.O
         btnCapturePic = findViewById(R.id.btnCapturePic);
         btnIdentify = findViewById(R.id.btnIdentify);
         btnChoose = findViewById(R.id.btnChoose);
+
+        mStorageRef = FirebaseStorage.getInstance().getReference();
 
         btnIdentify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +122,34 @@ public class CaptureActivity extends AppCompatActivity implements TextToSpeech.O
             @Override
             public void onClick(View v) {
                 showDetail();
+            }
+        });
+        imageVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (detail != "[Not Classify]" && detail != "Not Classify") {
+                    String object = detail;
+                    String codeObject;
+                    if (detail.contains(" ")) {
+                        codeObject = detail.substring(1, detail.indexOf(" ")).toLowerCase().concat("_").concat(detail.substring(detail.indexOf(" ") + 1, detail.indexOf("]")).toLowerCase());
+                    } else {
+                        codeObject = detail.substring(1, detail.indexOf("]")).toLowerCase();
+                    }
+                    mStorageRef.child(codeObject + "/" + codeObject + ".mp4").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Intent intent = new Intent(CaptureActivity.this, PlayVideoInArScene.class);
+                            intent.putExtra("object", object);
+                            intent.putExtra("pathVideo", uri.toString());
+                            startActivity(intent);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(CaptureActivity.this, "Fail to load video.", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {

@@ -88,7 +88,6 @@ public class ThreeModelElectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Category objCat = (Category) v.getTag();
-//                Log.v( "Ahihi", objCat.getNameCat() );
                 initProduct(objCat.getNameCat());
                 attachGridViewElection();
             }

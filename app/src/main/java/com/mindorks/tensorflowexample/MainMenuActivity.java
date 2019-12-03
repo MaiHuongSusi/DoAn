@@ -21,7 +21,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void identifyObjects(View view) {
-        Intent intent = new Intent(MainMenuActivity.this, InstantDetectActivity.class);
+        Intent intent = new Intent(MainMenuActivity.this, ThreeModelElectionActivity.class);
         startActivity(intent);
     }
 }

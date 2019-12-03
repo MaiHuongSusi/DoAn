@@ -2,7 +2,6 @@ package com.mindorks.tensorflowexample;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.ImageFormat;
@@ -22,7 +21,6 @@ import android.media.ImageReader;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import androidx.annotation.Nullable;
 import android.util.Size;
 import android.view.LayoutInflater;
 import android.view.Surface;
@@ -30,6 +28,10 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -261,7 +263,7 @@ public class CameraFragment extends Fragment {
     }
 
     private void setUpCameraOutputs() {
-        final Activity activity = getActivity();
+        final AppCompatActivity activity = (AppCompatActivity) getActivity();
         final CameraManager manager = (CameraManager) activity.getSystemService( Context.CAMERA_SERVICE);
         try {
             for (final String cameraId : manager.getCameraIdList()) {
@@ -299,7 +301,7 @@ public class CameraFragment extends Fragment {
     }
 
     private void configureTransform(final int viewWidth, final int viewHeight) {
-        final Activity activity = getActivity();
+        final AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (null == textureView || null == previewSize || null == activity) {
             return;
         }
@@ -328,7 +330,7 @@ public class CameraFragment extends Fragment {
     private void openCamera(final int width, final int height) {
         setUpCameraOutputs();
         configureTransform(width, height);
-        final Activity activity = getActivity();
+        final AppCompatActivity activity = (AppCompatActivity) getActivity();
         final CameraManager manager = (CameraManager) activity.getSystemService( Context.CAMERA_SERVICE);
         try {
             if (!cameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {

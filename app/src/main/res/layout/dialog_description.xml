@@ -85,7 +85,7 @@
             android:id="@+id/imgBtnSpeaker"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/speaker"
+            app:srcCompat="@drawable/speaker"
             android:paddingTop="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp"

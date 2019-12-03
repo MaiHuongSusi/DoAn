@@ -17,6 +17,7 @@
     package="com.mindorks.tensorflowexample">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -93,10 +94,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ThreeModelActivity"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainMenuActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ThreeModelElectionActivity"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainMenuActivity"
             android:screenOrientation="portrait" />
     </application>
 

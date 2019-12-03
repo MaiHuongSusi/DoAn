@@ -19,7 +19,6 @@ package com.mindorks.tensorflowexample;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -47,7 +46,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -104,6 +110,7 @@ public class InstantDetectActivity extends AppCompatActivity implements ImageRea
     Dialog dialog;
     String detail;
     Uri imageUri;
+    private StorageReference mStorageRef;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -118,6 +125,8 @@ public class InstantDetectActivity extends AppCompatActivity implements ImageRea
         } else {
             requestPermission();
         }
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+
         btnChoose = findViewById(R.id.btnChoose);
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,7 +189,7 @@ public class InstantDetectActivity extends AppCompatActivity implements ImageRea
 
     protected void setFragment() {
         final Fragment fragment = new CameraFragment(this);
-        getFragmentManager()
+        getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
@@ -255,10 +264,29 @@ public class InstantDetectActivity extends AppCompatActivity implements ImageRea
         imageVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String object = detail;
-                Intent intent = new Intent(InstantDetectActivity.this, PlayVideoInArScene.class);
-                intent.putExtra("object", object);
-                startActivity(intent);
+                if (detail != "[Not Classify]" && detail != "Not Classify") {
+                    String object = detail;
+                    String codeObject;
+                    if (detail.contains(" ")) {
+                        codeObject = detail.substring(1, detail.indexOf(" ")).toLowerCase().concat("_").concat(detail.substring(detail.indexOf(" ") + 1, detail.indexOf("]")).toLowerCase());
+                    } else {
+                        codeObject = detail.substring(1, detail.indexOf("]")).toLowerCase();
+                    }
+                    mStorageRef.child(codeObject + "/" + codeObject + ".mp4").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Intent intent = new Intent(InstantDetectActivity.this, PlayVideoInArScene.class);
+                            intent.putExtra("object", object);
+                            intent.putExtra("pathVideo", uri.toString());
+                            startActivity(intent);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(InstantDetectActivity.this, "Fail to load video.", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
 

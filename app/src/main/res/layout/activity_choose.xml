@@ -96,7 +96,7 @@
             android:layout_height="300dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:src="@drawable/noimage"/>
+            app:srcCompat="@drawable/noimage"/>
         <GridLayout
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"

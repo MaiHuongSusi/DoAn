@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "835864874416-ibomf1nf8rhlt1tgg27gvjpa53jn0lkn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mindorks.tensorflowexample",
+            "certificate_hash": "5edf4b2fa1f3a785f70347b050b3728cb2c56d5b"
+          }
+        },
+        {
           "client_id": "835864874416-99pgslj9sn6u3bj0d2udng2r663aj5rr.apps.googleusercontent.com",
           "client_type": 3
         }
