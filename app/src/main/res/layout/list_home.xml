@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListHomeActivity">
+
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:id="@+id/arFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/house"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/house" />
+
+            <ImageView
+                android:id="@+id/modernhouse"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/modernhouse" />
+
+            <ImageView
+                android:id="@+id/livingroom"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/livingroom" />
+
+            <ImageView
+                android:id="@+id/couch"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/couch" />
+
+            <ImageView
+                android:id="@+id/tv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tv" />
+
+            <ImageView
+                android:id="@+id/remotecontrol"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/remotecontrol" />
+
+            <ImageView
+                android:id="@+id/table"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/table" />
+
+            <ImageView
+                android:id="@+id/kitchen"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/kitchen" />
+
+            <ImageView
+                android:id="@+id/kitchen1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/kitchen1" />
+
+            <ImageView
+                android:id="@+id/bedroom"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/bedroom" />
+
+            <ImageView
+                android:id="@+id/bathroom"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/bathroom" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/btn_record" />
+</RelativeLayout>

@@ -45,32 +45,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-//        imageButton = (ImageView) findViewById(R.id.imageButton);
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent dirAct = new Intent(MainActivity.this, DirectoryActivity.class);
-//                startActivity(dirAct);
-//            }
-//        });
-//        threeDButton = (ImageView) findViewById(R.id.threeDButton);
-//        threeDButton.setOnClickListener(new View.OnClickListener() {
-//                                            @Override
-//                                            public void onClick(View view) {
-//                                                Intent modAct = new Intent(MainActivity.this, ThreeModelElectionActivity.class);
-//                                                startActivity(modAct);
-//                                            }
-//                                        }
-//        );
-//        cameraButton = (ImageView) findViewById(R.id.cameraButton);
-//        cameraButton.setOnClickListener(new View.OnClickListener() {
-//                                            @Override
-//                                            public void onClick(View view) {
-//                                                Intent modAct = new Intent(MainActivity.this, InstantDetectActivity.class);
-//                                                startActivity(modAct);
-//                                            }
-//                                        }
-//        );
     }
 }

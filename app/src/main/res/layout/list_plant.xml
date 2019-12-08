@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListAnimalActivity">
+
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:id="@+id/arFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/mushroom"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/mushroom" />
+
+            <ImageView
+                android:id="@+id/chili"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/chili" />
+
+            <ImageView
+                android:id="@+id/flower"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/flower" />
+
+            <ImageView
+                android:id="@+id/apple"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/apple" />
+
+            <ImageView
+                android:id="@+id/cactus"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/cactus" />
+
+            <ImageView
+                android:id="@+id/carrot"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/carrot" />
+
+            <ImageView
+                android:id="@+id/strawberry"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/strawberry" />
+
+            <ImageView
+                android:id="@+id/tomato"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tomato" />
+
+            <ImageView
+                android:id="@+id/watermelon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/watermelon" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/btn_record" />
+</RelativeLayout>

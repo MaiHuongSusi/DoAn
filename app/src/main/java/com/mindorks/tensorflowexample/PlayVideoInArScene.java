@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.SurfaceTexture;
+import android.media.CamcorderProfile;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -36,6 +38,8 @@ public class PlayVideoInArScene extends AppCompatActivity {
     private ArFragment arFragment;
     private String name;
     private LinearLayout btnBack;
+    private Button record;
+    private VideoRecorder videoRecorder;
 
     @Nullable
     private ModelRenderable videoRenderable;
@@ -142,6 +146,26 @@ public class PlayVideoInArScene extends AppCompatActivity {
                         videoNode.setRenderable(videoRenderable);
                     }
                 });
+        record = findViewById(R.id.record);
+        record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (videoRecorder == null) {
+                    videoRecorder = new VideoRecorder();
+                    videoRecorder.setSceneView(arFragment.getArSceneView());
+                    int orientation = getResources().getConfiguration().orientation;
+                    videoRecorder.setVideoQuality(CamcorderProfile.QUALITY_HIGH, orientation);
+                }
+                boolean isRecording = videoRecorder.onToggleRecord();
+                if (isRecording) {
+                    record.setBackgroundResource(R.drawable.btn_stop);
+                    Toast.makeText(PlayVideoInArScene.this, "Recording", Toast.LENGTH_SHORT).show();
+                } else {
+                    record.setBackgroundResource(R.drawable.btn_record);
+                    Toast.makeText(PlayVideoInArScene.this, "Saved video to gallery.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

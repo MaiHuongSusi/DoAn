@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListAnimalActivity">
+
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:id="@+id/arFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/fox"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/fox" />
+
+            <ImageView
+                android:id="@+id/cat"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/cat" />
+
+            <ImageView
+                android:id="@+id/dog"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/dog" />
+
+            <ImageView
+                android:id="@+id/duck"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/duck" />
+
+            <ImageView
+                android:id="@+id/horse"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/horse" />
+
+            <ImageView
+                android:id="@+id/zebra"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/zebra" />
+
+            <ImageView
+                android:id="@+id/sheep"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sheep" />
+
+            <ImageView
+                android:id="@+id/chicken"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/chicken" />
+
+            <ImageView
+                android:id="@+id/kangaroo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/kangaroo" />
+
+            <ImageView
+                android:id="@+id/cow"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/cow" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/btn_record" />
+</RelativeLayout>

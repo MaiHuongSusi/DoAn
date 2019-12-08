@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListVehicleActivity">
+
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:id="@+id/arFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/bike"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/bike" />
+
+            <ImageView
+                android:id="@+id/train"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/train" />
+
+            <ImageView
+                android:id="@+id/car"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/car" />
+
+            <ImageView
+                android:id="@+id/firetruck"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/firetruck" />
+
+            <ImageView
+                android:id="@+id/helicopter"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/helicopter" />
+
+            <ImageView
+                android:id="@+id/plane"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/plane" />
+
+            <ImageView
+                android:id="@+id/boat"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/boat" />
+
+            <ImageView
+                android:id="@+id/sailboat"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sailboat" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/btn_record" />
+</RelativeLayout>

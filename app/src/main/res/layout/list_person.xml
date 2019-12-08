@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListPersonActivity">
+
+    <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
+        android:id="@+id/arFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/breifcap"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/breifcase" />
+
+            <ImageView
+                android:id="@+id/cap"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/cap" />
+
+            <ImageView
+                android:id="@+id/flipflops"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/flipflops" />
+
+            <ImageView
+                android:id="@+id/headphones"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/headphones" />
+
+            <ImageView
+                android:id="@+id/purse"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/purse" />
+
+            <ImageView
+                android:id="@+id/sandals"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sandals" />
+
+            <ImageView
+                android:id="@+id/sneakers"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sneakers" />
+
+            <ImageView
+                android:id="@+id/stillettos"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/stilettos" />
+
+            <ImageView
+                android:id="@+id/sunglasses"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sunglasses" />
+
+            <ImageView
+                android:id="@+id/tshirt"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tshirt" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/btn_record" />
+</RelativeLayout>
