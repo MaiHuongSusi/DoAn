@@ -91,6 +91,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             image = itemView.findViewById(R.id.image);
             name = itemView.findViewById(R.id.name);
         }
