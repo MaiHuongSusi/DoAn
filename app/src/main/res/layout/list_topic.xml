@@ -5,61 +5,65 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:paddingLeft="15dp"-->
+<!--        android:paddingRight="15dp"-->
+<!--        android:scrollbars="vertical"-->
+<!--        tools:context=".ListTopicActivity">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/ocean"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/ocean" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/home"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/home" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/person"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/person" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/animal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/animal" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/plant"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/plant" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/vehicle"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/vehicle" />-->
+
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:scrollbars="vertical"
-        tools:context=".ListTopicActivity">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/ocean"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/ocean" />
-
-            <ImageView
-                android:id="@+id/home"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/home" />
-
-            <ImageView
-                android:id="@+id/person"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/person" />
-
-            <ImageView
-                android:id="@+id/animal"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/animal" />
-
-            <ImageView
-                android:id="@+id/plant"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/plant" />
-
-            <ImageView
-                android:id="@+id/vehicle"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/vehicle" />
-
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"/>
 </LinearLayout>

@@ -116,6 +116,13 @@
             android:name=".ListOtherAnimationActivity"
             android:parentActivityName=".ListAnimationActivity">
         </activity>
+        <activity
+            android:name=".TestRecycleView"
+            android:parentActivityName=".ListTopicActivity">
+        </activity>
+        <activity
+            android:name=".PlayVideoInArScene">
+        </activity>
     </application>
 
 </manifest>
