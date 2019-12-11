@@ -22,15 +22,25 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     private Context mContext;
     public int selected;
 
-    public interface IOnItemClickListener {
-        void onClick();
+//    public interface IOnItemClickListener {
+//        void onClick();
+//    }
+
+    public interface IOnItemClick {
+        void onClick(int pos);
     }
 
-    IOnItemClickListener iOnItemClickListener;
+    private IOnItemClick iOnItemClick;
 
-    public void setOnItemClickListener(IOnItemClickListener iOnItemClickListener) {
-        this.iOnItemClickListener = iOnItemClickListener;
+    public void setOnItemClick(IOnItemClick iOnItemClick) {
+        this.iOnItemClick = iOnItemClick;
     }
+
+//    IOnItemClickListener iOnItemClickListener;
+
+//    public void setOnItemClickListener(IOnItemClickListener iOnItemClickListener) {
+//        this.iOnItemClickListener = iOnItemClickListener;
+//    }
 
     public RecycleViewAdapter(Context mContext, ArrayList<Integer> mImages, ArrayList<String> mNames) {
         this.mNames = mNames;
@@ -42,19 +52,26 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
-        return new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        viewHolder.setOnItemClick(new IOnItemClick() {
+            @Override
+            public void onClick(int pos) {
+                RecycleViewAdapter.this.iOnItemClick.onClick(pos);
+            }
+        });
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.image);
         holder.name.setText(mNames.get(position));
-        holder.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selected = position + 1;
-            }
-        });
+//        holder.image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                selected = position + 1;
+//            }
+//        });
     }
 
     @Override
@@ -62,14 +79,28 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         return mNames.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView image;
         TextView name;
 
+        IOnItemClick iOnItemClick;
+
+        public void setOnItemClick(IOnItemClick iOnItemClick) {
+            this.iOnItemClick = iOnItemClick;
+        }
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             image = itemView.findViewById(R.id.image);
             name = itemView.findViewById(R.id.name);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (this.iOnItemClick != null) {
+                this.iOnItemClick.onClick(getAdapterPosition());
+            }
         }
     }
 }

@@ -169,13 +169,20 @@ public class TestRecycleView extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(this, mImages, mNames);
-        recycleViewAdapter.setOnItemClickListener(new RecycleViewAdapter.IOnItemClickListener() {
+        recycleViewAdapter.setOnItemClick(new RecycleViewAdapter.IOnItemClick() {
             @Override
-            public void onClick() {
-                selected = recycleViewAdapter.selected;
-                Toast.makeText(TestRecycleView.this, ""+selected, Toast.LENGTH_SHORT).show();
+            public void onClick(int pos) {
+                // Pos here
+                Toast.makeText(TestRecycleView.this, "Clicked position: " + pos, Toast.LENGTH_SHORT).show();
             }
         });
+//        recycleViewAdapter.setOnItemClickListener(new RecycleViewAdapter.IOnItemClickListener() {
+//            @Override
+//            public void onClick() {
+//                selected = recycleViewAdapter.selected;
+//                Toast.makeText(TestRecycleView.this, ""+selected, Toast.LENGTH_SHORT).show();
+//            }
+//        });
         recyclerView.setAdapter(recycleViewAdapter);
     }
 
